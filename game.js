@@ -2,15 +2,15 @@ var width = 10;
 var height = 10;
 
 var board = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	 [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-	 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	 [0, 0, 0, 0, 1, 1, 0, 0, 0, 0],
-	 [0, 0, 0, 0, 1, 1, 0, 0, 0, 0],
-	 [0, 0, 0, 0, 1, 1, 0, 0, 0, 0],
-	 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]];
+	 		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	 		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	 		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	 		[0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+	 		[0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+	 		[0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+	 		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	 		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]];
 
 function printBoard(board) {
 	for (var i = 0; i < height; i++){
@@ -33,10 +33,12 @@ function countAliveAdjacentCells(x,y){
 };
 
 function processNewBoard(board){
-	var newBoard = board;
-	for (var i = 0; i < height; i++)
+	var newBoard = new Array(height);
+	for (var i = 0; i < height; i++){
+		newBoard[i] = new Array(width);
 		for (var j= 0; j < width; j++)
 			newBoard[i][j] = processCell(board[i][j], countAliveAdjacentCells(i, j));
+	}
 	return newBoard;
 }
 
