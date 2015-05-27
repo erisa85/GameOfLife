@@ -52,11 +52,21 @@ function MainLoop() {
 	printBoard(board);
 }
 
-function drawCanvas(board) {
+function drawCanvas() {
 	canvas = document.getElementById("canvas");
 	context = canvas.getContext("2d");
 	canvas_height = canvas.height;
 	canvas_width = canvas.width;
-	context.fillStyle = "black";
+	square_width = canvas.width / width;
+	square_height = canvas.height / height;
+	// Clear the entire Canvas
+	context.fillStyle = "white";
 	context.fillRect(0,0,canvas_height,canvas_width);
+	// Draw the board
+	context.fillStyle = "black";
+	for (var i = 0; i < height; i++)
+		for (var j= 0; j < width; j++)
+			if (board[i][j] == 1)
+				context.fillRect(square_height*i,square_width*j,square_height,square_width);
+
 }
