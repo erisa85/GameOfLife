@@ -51,3 +51,12 @@ function MainLoop() {
 	board = processNewBoard(board);
 	printBoard(board);
 }
+
+function drawCanvas(board) {
+	canvas = document.getElementById("canvas");
+	context = canvas.getContext("2d");
+	canvas_height = canvas.height;
+	canvas_width = canvas.width;
+	context.fillStyle = "black";
+	context.fillRect(0,0,canvas_height,canvas_width);
+}
