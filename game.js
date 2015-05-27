@@ -48,8 +48,9 @@ function processCell(currentState, count){
 }
 
 function MainLoop() {
+	drawCanvas();
 	board = processNewBoard(board);
-	printBoard(board);
+	drawCanvas();
 }
 
 function drawCanvas() {
